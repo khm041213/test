@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+    @font-face {
+        font-family: SCD1;
+        src: url(SCDream1.otf);
+    } 
+
+    @font-face {
+        font-family: SCD2;
+        src: url(SCDream2.otf);
+    } 
+
+    @font-face {
+        font-family: SCD3;
+        src: url(SCDream3.otf);
+    } 
+
+    @font-face {
+        font-family: SCD4;
+        src: url(SCDream4.otf);
+    } 
+
+
+    
+    body{
+         background-color: #f6f6f6;
+    }
+
+    #leftblock{
+        height: 1920px;
+        width: 200px;
+        background-color: #ffffff;
+
+        position: fixed;
+        left: 0%;
+        top: 0%;
+        
+        box-shadow: 6px 0px #c5c5c5;
+
+    }
+
+    #title1{
+        position: fixed;
+        text-align: center;
+        top: 10px;
+        left: 100px;
+        transform: translateX(-50%);
+
+        font-family: SCD1;
+        font-size: 300%;
+    }
+
+    #title2{
+        position: fixed;
+        text-align: center;
+        top: 60px;
+        left: 100px;
+        transform: translateX(-50%);
+
+        font-family: SCD1;
+        font-size: 160%;
+    }
+
+    #search{
+        border: 1px solid black;
+        font-family: SCD2;
+        position: fixed;
+        top: 110px;
+        left: 15px;
+        height: 22px;
+        width: 170px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        outline: 0px;
+        padding-left:5px;
+    }
+
+    #profile{
+        position: fixed;
+        width: 170px;
+        height: 230px;
+        left: 15px;
+        top: 720px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        background-color: white;
+        font-family: SCD1;
+        text-align: center;
+        
+    }
+
+    #login{
+        position: fixed;
+        top: 85%;
+        left: 100px;
+        transform: translateX(-50%);
+        font-family: SCD1;
+        font-size: 150%;
+        box-shadow:0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        height: 50px;
+        width: 160px;
+        text-align: center;
+        transition: 0.5s;
+    }
+
+    #login:hover{
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    #login:active{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    #register{
+        position: fixed;
+        top: 92%;
+        left: 100px;
+        transform: translateX(-50%);
+        font-family: SCD1;
+        font-size: 150%;
+        box-shadow:0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        height: 50px;
+        width: 160px;
+        text-align: center;
+        transition: 0.5s;
+    }
+
+    #register:hover{
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    #register:active{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    #leveltime{
+        position: fixed;
+        font-family: SCD1;
+        top: 15%;
+        left: 0.8%;
+        font-size: 120%;
+    }
+
+    #levelid{
+        position: fixed;
+        font-family: SCD1;
+        top: 22%;
+        left: 0.8%;
+        font-size: 120%;
+    }
+
+    #leveldownload{
+        position: fixed;
+        font-family: SCD1;
+        top: 29%;
+        left: 0.8%;
+        font-size: 120%;
+    }
+
+    #levellike{
+        position: fixed;
+        font-family: SCD1;
+        top: 36%;
+        left: 0.8%;
+        font-size: 120%;
+    }
+
+    #rules{
+        position: fixed;
+        font-family: SCD1;
+        top: 50%;
+        left: 0.8%;
+        font-size: 120%;
+    }
+
+    #notices{
+        position: fixed;
+        font-family: SCD1;
+        top: 57%;
+        left: 0.8%;
+        font-size: 120%;
+    }
+
+    #discord{
+        position: fixed;
+        font-family: SCD1;
+        top: 64%;
+        left: 0.8%;
+        font-size: 120%;
+    }
+
+    </style>
+
+
+</head>
+
+<body>
+    
+    <div id="leftblock">
+
+        <div id="title1">Adofai</div>
+        <div id="title2">level list</div>
+
+            <input type="text" placeholder="search..." id="search">
+            </input>
+
+            
+                <p id="leveltime">level (time)</p>
+                <p id="levelid">level (id)</p>
+                <p id="leveldownload">level (download)</p>
+                <p id="levellike">level (like)</p>
+
+                <p id="rules">rules</p>
+                <p id="notices">notices</p>
+                <p id="discord">discord</p>
+            
+
+                <div id="profile">
+                    profile
+                    <div id="login">login</div>
+                    <div id="register">register</div>
+
+                </div>
+
+    </div>
+
+</body>
+</html>
