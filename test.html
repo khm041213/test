@@ -8,6 +8,15 @@
 
     <style>
 
+    body{
+        overflow: hidden;
+        margin: 0px;
+    }
+
+    #fullscr{
+        margin: 0px;
+    }
+
     @font-face {
         font-family: SCD1;
         src: url(SCDream1.otf);
@@ -28,6 +37,12 @@
         src: url(SCDream4.otf);
     } 
 
+    @font-face {
+        font-family: 'NSR';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+        font-weight: normal;
+        font-style: normal; }
+
 
     
     body{
@@ -35,7 +50,7 @@
     }
 
     #leftblock{
-        height: 1920px;
+        height: 100%;
         width: 200px;
         background-color: #ffffff;
 
@@ -44,6 +59,7 @@
         top: 0%;
         
         box-shadow: 6px 0px #c5c5c5;
+        overflow: hidden;
 
     }
 
@@ -73,7 +89,7 @@
         border: 1px solid black;
         font-family: SCD2;
         position: fixed;
-        top: 110px;
+        top: 11%;
         left: 15px;
         height: 22px;
         width: 170px;
@@ -88,7 +104,7 @@
         width: 170px;
         height: 230px;
         left: 15px;
-        top: 720px;
+        top:75%;
         border-radius: 10px;
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
         background-color: white;
@@ -99,7 +115,7 @@
 
     #login{
         position: fixed;
-        top: 85%;
+        top: 86%;
         left: 100px;
         transform: translateX(-50%);
         font-family: SCD1;
@@ -122,7 +138,7 @@
 
     #register{
         position: fixed;
-        top: 92%;
+        top: 93%;
         left: 100px;
         transform: translateX(-50%);
         font-family: SCD1;
@@ -199,6 +215,156 @@
         font-size: 120%;
     }
 
+    #levellist{
+        position: relative;
+        left: 200px;
+        top: 0px;
+        width: 89.7%;
+        height: 100%;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin: 0px;
+    }
+
+
+    #levelfile1{
+        position: relative;
+        top: 50px;
+        left: 70px;
+        width: 92%;
+        height: 80px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        background-color: white;
+        padding-left: 5px;
+    }
+
+    #levelfile2{
+        position: relative;
+        top: 150px;
+        left: 70px;
+        width: 92%;
+        height: 80px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        background-color: white;
+        padding-left: 5px;
+    }
+
+    #levelfile3{
+        position: relative;
+        top: 250px;
+        left: 70px;
+        width: 92%;
+        height: 80px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        background-color: white;
+        padding-left: 5px;
+    }
+
+    #levelfile4{
+        position: relative;
+        top: 350px;
+        left: 70px;
+        width: 92%;
+        height: 80px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        background-color: white;
+        padding-left: 5px;
+    }
+
+    #levelfile5{
+        position: relative;
+        top: 450px;
+        left: 70px;
+        width: 92%;
+        height: 80px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        background-color: white;
+        padding-left: 5px;
+    }
+
+    #levelfile6{
+        position: relative;
+        top: 550px;
+        left: 70px;
+        width: 92%;
+        height: 80px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        background-color: white;
+        padding-left: 5px;
+
+    }#levelfile7{
+        position: relative;
+        top: 650px;
+        left: 70px;
+        width: 92%;
+        height: 80px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        background-color: white;
+        padding-left: 5px;
+    }
+
+
+    
+
+    #level{
+        
+        position: relative;
+        font-family: SCD2;
+        font-size: 250%;
+        
+        
+    }
+
+    #maker{
+        position: relative;
+        font-family: SCD4;
+        font-size: 175%;
+        
+    }
+
+    #artist{
+        position: relative;
+        font-family: NSR;
+        vertical-align: middle;
+        
+    }
+
+    #song{
+        position: relative;
+        font-family: NSR;
+        
+    }
+
+    #dicon{
+        position: relative;
+        left: 20%;
+        top: -64px;
+    }
+
+    #vicon{
+        position: relative;
+        left: 30%;
+        top: -64px;
+    }
+
+    #id{
+        position: relative;
+        font-family: SCD2;
+        text-align: left;
+        left: 95%;
+        top: -80px;
+    }
+
+    
+
     </style>
 
 
@@ -206,6 +372,10 @@
 
 <body>
     
+    
+    <div id="fullscr">
+
+
     <div id="leftblock">
 
         <div id="title1">Adofai</div>
@@ -232,7 +402,150 @@
 
                 </div>
 
+
+                
+
     </div>
 
+    <div id="levellist">
+
+        <div id="levelfile1">
+
+            <span id="level">Level</span>
+            <span id="maker">maker</span>
+            <div></div>
+            <span id="artist">artist</span>
+            <span>-</span>
+            <span id="song">song</span>
+            <div></div>
+            <img src="downloadicon.png" alt="" id="dicon">
+            <img src="videoicon.png" alt="" id="vicon">
+            <div id="id">id - 1</div>
+            
+            
+
+        </div>
+
+        <div id="levelfile2">
+
+            <span id="level">Level</span>
+            <span id="maker">maker</span>
+            <div></div>
+            <span id="artist">artist</span>
+            <span>-</span>
+            <span id="song">song</span>
+            <div></div>
+            <img src="downloadicon.png" alt="" id="dicon">
+            <img src="videoicon.png" alt="" id="vicon">
+            <div id="id">id - 1</div>
+            
+
+        </div>
+
+        <div id="levelfile3">
+
+            <span id="level">Level</span>
+            <span id="maker">maker</span>
+            <div></div>
+            <span id="artist">artist</span>
+            <span>-</span>
+            <span id="song">song</span>
+            <div></div>
+            <img src="downloadicon.png" alt="" id="dicon">
+            <img src="videoicon.png" alt="" id="vicon">
+            <div id="id">id - 1</div>
+            
+
+        </div>
+
+        <div id="levelfile4">
+
+            <span id="level">Level</span>
+            <span id="maker">maker</span>
+            <div></div>
+            <span id="artist">artist</span>
+            <span>-</span>
+            <span id="song">song</span>
+            <div></div>
+            <img src="downloadicon.png" alt="" id="dicon">
+            <img src="videoicon.png" alt="" id="vicon">
+            <div id="id">id - 1</div>
+            
+
+        </div>
+
+        <div id="levelfile5">
+
+            <span id="level">Level</span>
+            <span id="maker">maker</span>
+            <div></div>
+            <span id="artist">artist</span>
+            <span>-</span>
+            <span id="song">song</span>
+            <div></div>
+            <img src="downloadicon.png" alt="" id="dicon">
+            <img src="videoicon.png" alt="" id="vicon">
+            <div id="id">id - 1</div>
+            
+
+        </div>
+
+        <div id="levelfile6">
+
+            <span id="level">Level</span>
+            <span id="maker">maker</span>
+            <div></div>
+            <span id="artist">artist</span>
+            <span>-</span>
+            <span id="song">song</span>
+            <div></div>
+            <img src="downloadicon.png" alt="" id="dicon">
+            <img src="videoicon.png" alt="" id="vicon">
+            <div id="id">id - 1</div>
+            
+
+        </div>
+
+        <div id="levelfile7">
+
+            <span id="level">Level</span>
+            <span id="maker">maker</span>
+            <div></div>
+            <span id="artist">artist</span>
+            <span>-</span>
+            <span id="song">song</span>
+            <div></div>
+            <img src="downloadicon.png" alt="" id="dicon">
+            <img src="videoicon.png" alt="" id="vicon">
+            <div id="id">id - 1</div>
+            
+
+        </div>
+
+
+
+        
+
+    </div>
+    
+</div>
+</div>
+
 </body>
+
+    <script>
+    
+    function doc(s){
+        return document.getElementById(s);
+    };
+
+    window.onresize=function(){
+    doc("fullscr").style.width=window.innerWidth+"px";
+    doc("fullscr").style.height=window.innerHeight+"px";
+    };
+
+    onresize();
+
+
+    </script>  
 </html>
