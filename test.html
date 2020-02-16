@@ -9,7 +9,8 @@
     <style>
 
     body{
-        overflow: hidden;
+        overflow-y: hidden;
+        overflow-x: hidden;
         margin: 0px;
     }
 
@@ -58,8 +59,10 @@
         left: 0%;
         top: 0%;
         
-        box-shadow: 6px 0px #c5c5c5;
+        box-shadow: 6px 0px rgba(0, 0, 0, 0.5);
         overflow: hidden;
+
+        z-index: 10;
 
     }
 
@@ -72,6 +75,7 @@
 
         font-family: SCD1;
         font-size: 300%;
+        z-index: 11;
     }
 
     #title2{
@@ -83,6 +87,7 @@
 
         font-family: SCD1;
         font-size: 160%;
+        z-index: 11;
     }
 
     #search{
@@ -97,66 +102,7 @@
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
         outline: 0px;
         padding-left:5px;
-    }
-
-    #profile{
-        position: fixed;
-        width: 170px;
-        height: 230px;
-        left: 15px;
-        top:75%;
-        border-radius: 10px;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-        background-color: white;
-        font-family: SCD1;
-        text-align: center;
-        
-    }
-
-    #login{
-        position: fixed;
-        top: 86%;
-        left: 100px;
-        transform: translateX(-50%);
-        font-family: SCD1;
-        font-size: 150%;
-        box-shadow:0px 0px 10px rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
-        height: 50px;
-        width: 160px;
-        text-align: center;
-        transition: 0.5s;
-    }
-
-    #login:hover{
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    #login:active{
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-
-    #register{
-        position: fixed;
-        top: 93%;
-        left: 100px;
-        transform: translateX(-50%);
-        font-family: SCD1;
-        font-size: 150%;
-        box-shadow:0px 0px 10px rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
-        height: 50px;
-        width: 160px;
-        text-align: center;
-        transition: 0.5s;
-    }
-
-    #register:hover{
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    #register:active{
-        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 12;
     }
 
     #level1{
@@ -166,6 +112,7 @@
         left: 0.8%;
         font-size: 120%;
         cursor: pointer;
+        z-index: 11;
     }
 
     #level2{
@@ -175,6 +122,7 @@
         left: 0.8%;
         font-size: 120%;
         cursor: pointer;
+        z-index: 11;
     }
 
     #level3{
@@ -184,6 +132,7 @@
         left: 0.8%;
         font-size: 120%;
         cursor: pointer;
+        z-index: 11;
     }
 
     #level4{
@@ -193,6 +142,7 @@
         left: 0.8%;
         font-size: 120%;
         cursor: pointer;
+        z-index: 11;
     }
 
     #rules{
@@ -201,6 +151,7 @@
         top: 50%;
         left: 0.8%;
         font-size: 120%;
+        z-index: 11;
     }
 
     #notices{
@@ -209,6 +160,7 @@
         top: 57%;
         left: 0.8%;
         font-size: 120%;
+        z-index: 11;
     }
 
     #discord{
@@ -217,6 +169,17 @@
         top: 64%;
         left: 0.8%;
         font-size: 120%;
+        z-index: 11;
+    }
+
+    #ALimg{
+        position: fixed;
+        width: 5%;
+        left: 50px;
+        bottom: 50px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+        z-index: 11;
     }
 
     #levellist{
@@ -226,13 +189,13 @@
         width: 89.7%;
         height: 100%;
 
-        overflow-x: hidden;
+        overflow-x: auto;
         overflow-y: auto;
         margin: 0px;
     }
 
 
-    #levelfile{
+    .levelfile{
         position: relative;
         top: 50px;
         left: 70px;
@@ -244,55 +207,191 @@
         padding-left: 5px;
     }
 
-    #level{
-        
+    .level{
         position: relative;
         font-family: SCD2;
         font-size: 250%;
-        
-        
+
     }
 
-    #maker{
+    .maker{
         position: relative;
         font-family: SCD4;
         font-size: 175%;
         
     }
 
-    #artist{
+    .artist{
         position: relative;
         font-family: NSR;
         vertical-align: middle;
         
     }
 
-    #song{
-        position: relative;
-        font-family: NSR;
-        
-    }
-
-    #dicon{
+    .dicon{
         position: relative;
         left: 27%;
         top: -64px;
         cursor: pointer;
     }
 
-    #vicon{
+    .vicon{
         position: relative;
         left: 30%;
         top: -64px;
         cursor: pointer;
     }
 
-    #id{
+    .id{
         position: relative;
         font-family: SCD2;
         text-align: left;
         left: 95%;
         top: -80px;
+    }
+
+    .levelclbox{
+        position: relative;
+        top: -144px;
+        left: 40%;
+        height: 60px;
+        width: 50%;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        background-color: white;
+    }
+
+    .clearname{
+        position: relative;
+        font-family: SCD1;
+        font-size: 150%;
+        top: 5px;
+    }
+
+    .clearsp{
+        position: relative;
+        font-family: SCD2;
+        font-size: 90%;
+    }
+
+    .cvicon{
+        position: relative;
+        top: -48px;
+        left: 60%;
+    }
+
+    .diffi{
+        position: relative;
+        font-family: SCD4;
+        top: -160px;
+        left: 20%;
+    }
+
+    .bpm{
+        position: relative;
+        left: 20px;
+        top: 1px;
+        color: #000000;
+        font-family: NSR;
+    }
+
+    .pp{
+        position: relative;
+        font-family: SCD1;
+        font-size: 120%;
+    }
+
+
+    #biglogo{
+        position: relative;
+        width: 99.85%;
+        z-index: -1;
+        box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    #recordimg{
+        position: absolute;
+
+        top: 30%;
+        left: 20%;
+        transform: translateX(-50%);
+        height: 10%;
+    }
+
+    #uploadimg{
+        position: absolute;
+
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 10%;
+    }
+
+    #discordimg{
+        position: absolute;
+
+        top: 30%;
+        left: 80%;
+        transform: translateX(-50%);
+        height: 10%;
+    }
+
+    #recordtxt{
+        position: absolute;
+        left: 20%;
+        transform: translateX(-50%);
+        top: 40%;
+        font-family: SCD2;
+        font-size: 200%;
+    }
+
+    #uploadtxt{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 40%;
+        font-family: SCD2;
+        font-size: 200%;
+    }
+
+    #discordtxt{
+        position: absolute;
+        left: 80%;
+        transform: translateX(-50%);
+        top: 40%;
+        font-family: SCD2;
+        font-size: 200%;
+    }
+
+    #recordex{
+        position: absolute;
+        left: 20%;
+        transform: translateX(-50%);
+        top: 45%;
+        font-family: SCD2;
+        font-size: 80%;
+        text-align: center;
+    }
+
+    #uploadex{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 45%;
+        font-family: SCD2;
+        font-size: 80%;
+        text-align: center;
+    }
+
+    #discordex{
+        position: absolute;
+        width: 500px;
+        left: 80%;
+        transform: translateX(-50%);
+        top: 45%;
+        font-family: SCD2;
+        font-size: 80%;
+        text-align: center;
     }
 
     
@@ -303,7 +402,7 @@
 </head>
 
 <body>
-    
+     
     
     <div id="fullscr">
 
@@ -311,28 +410,25 @@
     <div id="leftblock">
 
         <div id="title1">Adofai</div>
-        <div id="title2">level list</div>
+        <div id="title2">unoff forum</div>
 
             <input type="text" placeholder="search..." id="search">
             </input>
 
             
-                <p id="level1">level (time)</p>
-                <p id="level2">level (id)</p>
-                <p id="level3">level (download)</p>
-                <p id="level4">level (like)</p>
+                <p id="level1">none</p>
+                <p id="level2">levels (id)</p>
+                <p id="level3">levels (difficult)</p>
+                <p id="level4">zero-score levels</p>
 
                 <p id="rules">rules</p>
                 <p id="notices">notices</p>
                 <p id="discord">discord</p>
+
+                <img src="AL.png" alt="" id="ALimg">
             
 
-                <div id="profile">
-                    profile
-                    <div id="login">login</div>
-                    <div id="register">register</div>
-
-                </div>
+                
 
 
                 
@@ -341,22 +437,40 @@
 
     <div id="levellist">
 
-        <div id="levelfile">
+        <!-- <div class="levelfile">
 
-            <span id="level">Level</span>
-            <span id="maker">maker</span>
+            <span class="level">Level</span>
+            <span class="maker">maker</span>
             <div></div>
-            <span id="artist">artist</span>
-            <span>-</span>
-            <span id="song">song</span>
+            <span class="artist">artist</span>
             <div></div>
-            <img src="downloadicon.png" alt="" id="dicon">
-            <img src="videoicon.png" alt="" id="vicon">
-            <div id="id">id - 1</div>
-            
-            
+            <img src="downloadicon.png" alt="다운로드(download)" class="dicon">
+            <img src="videoicon.png" alt="영상(video)" class="vicon">
+            <div class="id">id - 1</div>
+            <div class="diffi">20</div>
 
-        </div>
+            <div class="levelclbox">
+                <div class="clearname">클리어한 사람 이름</div>
+                <span class="clearsp">클리어 배속</span>
+                <div></div>
+                <img src="videoicon.png" alt="클리어 영상 (clear video)" class="cvicon">
+            </div>
+
+        </div> -->
+
+        <img src="adofailogo.png" alt="" id="biglogo">
+
+        <img src="record.png" alt="" id="recordimg">
+        <div id="recordtxt">기록 투고</div>
+        <div id="recordex">위 사진을 통해 공식맵 / 커스텀 맵 기록을 투고해보세요!<br>Submit your official map speed trial / custom map clear record through the image!</div>
+        <img src="upload.png" alt="" id="uploadimg">
+        <div id="uploadtxt">커스텀 맵 업로드</div>
+        <div id="uploadex">위 사진을 통해 자신의 멋진 맵을 리스트에 투고해보세요!<br>Submit your amazing map through the image!</div>
+        <img src="discord.png" alt="" id="discordimg">
+        <div id="discordtxt">디스코드</div>
+        <div id="discordex">ADOFAI Lounge 서버를 방문하여 피드백 및 건의를 할 수 있습니다.<br>You can request feedback in ADOFAI Lounge Discord Server!</div>
+
+        
         
 
     </div>
@@ -386,7 +500,334 @@
     var adofaitxt=x.response;
     var adofailevel=adofaitxt.split("\r\n\r\n").map(s=>s.split("\r\n"));
     
+    var adofaileveldiffi=JSON.parse(JSON.stringify(adofailevel));
 
+    adofaileveldiffi.sort((a,b)=>Math.sign(b[9]-a[9]));
+
+    var zerolevel=[];
+    for(var i=0;i<adofailevel.length;i++){
+        if(adofailevel[i][9]<1){
+            zerolevel.push(adofailevel[i]);
+        }
+    }
+    
+
+    doc('level2').onmousedown=function(){
+
+    doc('levellist').innerHTML='';
+
+    for(var i=0; i<=adofailevel.length-1; i++){
+
+        var levelfile=document.createElement('div');
+        levelfile.className='levelfile';
+        levelfile.id='levelfile'+i;
+        
+        document.getElementById('levellist').appendChild(levelfile);
+
+
+        var level=document.createElement('span');
+        level.className='level';
+        level.innerHTML=adofailevel[i][0];
+        document.getElementById('levelfile'+i).appendChild(level);
+
+        var maker=document.createElement('span');
+        maker.className='maker';
+        maker.innerHTML=adofailevel[i][1];
+        document.getElementById('levelfile'+i).appendChild(maker);
+
+        document.getElementById('levelfile'+i).appendChild(document.createElement('div'));
+
+        var artist=document.createElement('span');
+        artist.className='artist';
+        artist.innerHTML=adofailevel[i][2];
+        document.getElementById('levelfile'+i).appendChild(artist);
+
+        var bpm=document.createElement('span');
+        bpm.className='bpm';
+        bpm.innerHTML=adofailevel[i][3];
+        document.getElementById('levelfile'+i).appendChild(bpm);
+
+        document.getElementById('levelfile'+i).appendChild(document.createElement('div'));
+
+        var download=document.createElement('img');
+        download.src="downloadicon.png";
+        download.className='dicon';
+        document.getElementById('levelfile'+i).appendChild(download);
+
+        var video=document.createElement('img');
+        video.src="videoicon.png";
+        video.className='vicon';
+        document.getElementById('levelfile'+i).appendChild(video);
+
+        var levelid=document.createElement('div');
+        levelid.className='id';
+        levelid.innerHTML='id - '+adofailevel[i][11];
+        document.getElementById('levelfile'+i).appendChild(levelid);
+
+        
+        var levelclbox=document.createElement('div');
+        levelclbox.className='levelclbox';
+        levelclbox.id='levelclbox'+i;
+        document.getElementById('levelfile'+i).appendChild(levelclbox);
+
+        if(adofailevel[i][9]>0){
+
+            var clearname=document.createElement('div');
+            clearname.className='clearname';
+            clearname.innerHTML=adofailevel[i][6];
+            document.getElementById('levelclbox'+i).appendChild(clearname);
+
+            var clearsp=document.createElement('span');
+            clearsp.className='clearsp';
+            clearsp.innerHTML=adofailevel[i][7];
+            document.getElementById('levelclbox'+i).appendChild(clearsp);
+
+            document.getElementById('levelclbox'+i).appendChild(document.createElement('div'));
+
+            var cv=document.createElement('img');
+            cv.src="videoicon.png";
+            cv.className='cvicon';
+            document.getElementById('levelclbox'+i).appendChild(cv);
+
+        }
+
+        else if(adofailevel[i][9]<=0){
+
+            var pp=document.createElement('div');
+            pp.className='pp';
+            pp.innerHTML=adofailevel[i][10];
+            document.getElementById('levelclbox'+i).appendChild(pp);
+
+        }
+
+        var diffi=document.createElement('div');
+        diffi.className='diffi';
+        diffi.innerHTML=adofailevel[i][9];
+        document.getElementById('levelfile'+i).appendChild(diffi);
+
+        
+    doc('levelfile'+i).style.top=50+i*80+"px";
+        
+    }
+
+    }
+
+    doc('level3').onmousedown=function(){
+
+        doc('levellist').innerHTML=''
+
+    for(var i=0; i<=adofaileveldiffi.length-1; i++){
+
+    
+        var levelfile=document.createElement('div');
+        levelfile.className='levelfile';
+        levelfile.id='levelfile'+i;
+        
+        document.getElementById('levellist').appendChild(levelfile);
+
+
+        var level=document.createElement('span');
+        level.className='level';
+        level.innerHTML=adofaileveldiffi[i][0];
+        document.getElementById('levelfile'+i).appendChild(level);
+
+        var maker=document.createElement('span');
+        maker.className='maker';
+        maker.innerHTML=adofaileveldiffi[i][1];
+        document.getElementById('levelfile'+i).appendChild(maker);
+
+        document.getElementById('levelfile'+i).appendChild(document.createElement('div'));
+
+        var artist=document.createElement('span');
+        artist.className='artist';
+        artist.innerHTML=adofaileveldiffi[i][2];
+        document.getElementById('levelfile'+i).appendChild(artist);
+
+        var bpm=document.createElement('span');
+        bpm.className='bpm';
+        bpm.innerHTML=adofaileveldiffi[i][3];
+        document.getElementById('levelfile'+i).appendChild(bpm);
+
+        document.getElementById('levelfile'+i).appendChild(document.createElement('div'));
+
+        var download=document.createElement('img');
+        download.src="downloadicon.png";
+        download.className='dicon';
+        document.getElementById('levelfile'+i).appendChild(download);
+
+        var video=document.createElement('img');
+        video.src="videoicon.png";
+        video.className='vicon';
+        document.getElementById('levelfile'+i).appendChild(video);
+
+        var levelid=document.createElement('div');
+        levelid.className='id';
+        levelid.innerHTML='id - '+adofaileveldiffi[i][11];
+        document.getElementById('levelfile'+i).appendChild(levelid);
+
+        
+        var levelclbox=document.createElement('div');
+        levelclbox.className='levelclbox';
+        levelclbox.id='levelclbox'+i;
+        document.getElementById('levelfile'+i).appendChild(levelclbox);
+
+        if(adofaileveldiffi[i][9]>0){
+
+            var clearname=document.createElement('div');
+            clearname.className='clearname';
+            clearname.innerHTML=adofaileveldiffi[i][6];
+            document.getElementById('levelclbox'+i).appendChild(clearname);
+
+            var clearsp=document.createElement('span');
+            clearsp.className='clearsp';
+            clearsp.innerHTML=adofaileveldiffi[i][7];
+            document.getElementById('levelclbox'+i).appendChild(clearsp);
+
+            document.getElementById('levelclbox'+i).appendChild(document.createElement('div'));
+
+            var cv=document.createElement('img');
+            cv.src="videoicon.png";
+            cv.className='cvicon';
+            document.getElementById('levelclbox'+i).appendChild(cv);
+
+        }
+
+        else if(adofaileveldiffi[i][9]<=0){
+
+            var pp=document.createElement('div');
+            pp.className='pp';
+            pp.innerHTML=adofaileveldiffi[i][10];
+            document.getElementById('levelclbox'+i).appendChild(pp);
+
+        }
+
+        var diffi=document.createElement('div');
+        diffi.className='diffi';
+        diffi.innerHTML=adofaileveldiffi[i][9];
+        document.getElementById('levelfile'+i).appendChild(diffi);
+
+        
+    doc('levelfile'+i).style.top=50+i*80+"px";
+        
+    }
+
+    }
+
+
+    doc('level4').onmousedown=function(){
+
+        doc('levellist').innerHTML=''
+
+    for(var i=0; i<=zerolevel.length-1; i++){
+
+        
+
+        var levelfile=document.createElement('div');
+        levelfile.className='levelfile';
+        levelfile.id='levelfile'+i;
+        
+        document.getElementById('levellist').appendChild(levelfile);
+
+
+        var level=document.createElement('span');
+        level.className='level';
+        level.innerHTML=zerolevel[i][0];
+        document.getElementById('levelfile'+i).appendChild(level);
+
+        var maker=document.createElement('span');
+        maker.className='maker';
+        maker.innerHTML=zerolevel[i][1];
+        document.getElementById('levelfile'+i).appendChild(maker);
+
+        document.getElementById('levelfile'+i).appendChild(document.createElement('div'));
+
+        var artist=document.createElement('span');
+        artist.className='artist';
+        artist.innerHTML=zerolevel[i][2];
+        document.getElementById('levelfile'+i).appendChild(artist);
+
+        var bpm=document.createElement('span');
+        bpm.className='bpm';
+        bpm.innerHTML=zerolevel[i][3];
+        document.getElementById('levelfile'+i).appendChild(bpm);
+
+        document.getElementById('levelfile'+i).appendChild(document.createElement('div'));
+
+        var download=document.createElement('img');
+        download.src="downloadicon.png";
+        download.className='dicon';
+        document.getElementById('levelfile'+i).appendChild(download);
+
+        var video=document.createElement('img');
+        video.src="videoicon.png";
+        video.className='vicon';
+        document.getElementById('levelfile'+i).appendChild(video);
+
+        var levelid=document.createElement('div');
+        levelid.className='id';
+        levelid.innerHTML='id - '+zerolevel[i][11];
+        document.getElementById('levelfile'+i).appendChild(levelid);
+
+        
+        var levelclbox=document.createElement('div');
+        levelclbox.className='levelclbox';
+        levelclbox.id='levelclbox'+i;
+        document.getElementById('levelfile'+i).appendChild(levelclbox);
+
+        if(zerolevel[i][9]>0){
+
+            var clearname=document.createElement('div');
+            clearname.className='clearname';
+            clearname.innerHTML=zerolevel[i][6];
+            document.getElementById('levelclbox'+i).appendChild(clearname);
+
+            var clearsp=document.createElement('span');
+            clearsp.className='clearsp';
+            clearsp.innerHTML=zerolevel[i][7];
+            document.getElementById('levelclbox'+i).appendChild(clearsp);
+
+            document.getElementById('levelclbox'+i).appendChild(document.createElement('div'));
+
+            var cv=document.createElement('img');
+            cv.src="videoicon.png";
+            cv.className='cvicon';
+            document.getElementById('levelclbox'+i).appendChild(cv);
+
+        }
+
+        else if(zerolevel[i][9]<=0){
+
+            var pp=document.createElement('div');
+            pp.className='pp';
+            pp.innerHTML=zerolevel[i][10];
+            document.getElementById('levelclbox'+i).appendChild(pp);
+
+        }
+
+        var diffi=document.createElement('div');
+        diffi.className='diffi';
+        diffi.innerHTML=zerolevel[i][9];
+        document.getElementById('levelfile'+i).appendChild(diffi);
+
+        
+    doc('levelfile'+i).style.top=50+i*80+"px";
+        
+    }
+
+    }
+
+    doc('recordimg').onclick=function(){
+        open("https://www.youtube.com/");
+    }
+
+    doc('uploadimg').onclick=function(){
+        open("https://www.naver.com/");
+    }
+
+    doc('discordimg').onclick=function(){
+        open("https://discord.gg/cEfYk6k");
+    }
+    
 
 
     </script>  
