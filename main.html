@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드게임</title>
+    <style>
+
+        html,body{
+            width:100%;
+            height:100%;
+            overflow:hidden;
+        }
+
+        @font-face {
+            font-family: cardfont;
+            src: url(CARDC___.TTF);
+        } 
+
+        @font-face {
+            font-family: cardfontkr;
+            src: url(OSeongandHanEum-Regular.ttf);
+        } 
+            
+        body{
+            background-color: #f4f9f4;
+        }
+
+        #line{
+            height: 5px;
+            width: 100%;
+            background-color: #5c8d89;
+            position: fixed;
+            left: 0%;
+            top: calc(35% - 5px);
+            box-shadow: 0px 5px 0px #5c8d8950;
+        }
+
+        #a_score{
+            font-family: cardfont;
+            font-size: 40px;
+            color: #a7d7c5;
+            transform: Translate(-50%,-50%);
+            position: absolute;
+            left: 50%;
+            top: calc(35% + 80px);
+            user-select: none;
+        }
+
+        #b_score{
+            font-family: cardfont;
+            font-size: 40px;
+            color: #a7d7c5;
+            transform: Translate(-50%,-50%);
+            position: absolute;
+            left: 50%;
+            top: calc(35% - 80px);
+            user-select: none;
+        }
+
+        .acard{
+            height: 25px;
+            width: 17px;
+            background-color: white;
+            box-shadow: 0px 0px 3px #00000080;
+            transform: Translate(-50%,-50%);
+            position: absolute;
+            top: calc(35% + 30px);
+            left: 50%;
+        }
+
+        .bcard{
+            height: 25px;
+            width: 17px;
+            background-color: white;
+            box-shadow: 0px 0px 3px #00000080;
+            transform: Translate(-50%,-50%);
+            position: absolute;
+            top: calc(35% - 30px);
+            left: 50%;
+        }
+
+        .card{
+            height: 100px;
+            width: 60px;
+            background-color: white;
+            box-shadow: 0px 0px 5px #00000050;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            bottom: 0%;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: cardfont;
+            font-size: 30px;
+            color: #74b49b;
+            user-select: none;
+        }
+
+        #b_maincard{
+            height: 100px;
+            width: 60px;
+            background-color: white;
+            box-shadow: 0px 0px 5px #00000050;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: 10%;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: cardfont;
+            font-size: 30px;
+            color: #74b49b;
+            user-select: none;
+        }
+
+        #explain_box{
+            height: 200px;
+            width: 400px;
+            background-color: white;
+            box-shadow: 0px 0px 20px #00000025;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: calc(35% + 250px);
+            font-family: cardfontkr;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 20px;
+            color: #a7d7c5;
+            word-break: keep-all;
+            text-shadow: 0px 0px 3px #5c8d8950;
+            padding: 2px 2px;
+            user-select: none;
+        }
+
+        #a_history{
+            font-family: cardfont;
+            font-size: 15px;
+            color: #a7d7c5;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: calc(35% + 120px);
+            user-select: none;
+        }
+        
+        #b_history{
+            font-family: cardfont;
+            font-size: 15px;
+            color: #a7d7c5;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: calc(35% - 120px);
+            user-select: none;
+        }
+
+        #cardname{
+            font-family: cardfont;
+            font-size: 19px;
+            color: #bed2ce;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: 35%;
+            z-index: 100;
+            text-shadow: 0px 0px 1px #000000b7;
+            user-select: none;
+        }
+
+        #result_screen{
+            width: 100%;
+            height: 100%;
+            background-color: #0000008a;
+            z-index: 100000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            font-family: cardfont, cardfontkr;
+            text-align: center;
+            word-break: keep-all;
+            display: none;
+        }
+
+        #message{
+            font-size: 100px;
+            color: #f4f9f4;
+            transform: translate(-50%, -50%);
+            position: fixed;
+            left: 50%;
+            top: 250px;
+            user-select: none;
+        }
+
+        #a_score_result_message{
+            font-size: 50px;
+            color: #f4f9f4;
+            transform: translate(-50%, -50%);
+            position: fixed;
+            left: calc(50% - 250px);
+            top: 450px;
+            user-select: none;
+        }
+
+        #a_score_result{
+            font-size: 40px;
+            color: #f4f9f4;
+            transform: translate(-50%, -50%);
+            position: fixed;
+            left: calc(50% - 250px);
+            top: 520px;
+            user-select: none;
+        }
+
+        #a_cards_result{
+            font-size: 20px;
+            color: #f4f9f4;
+            transform: translate(-50%, -50%);
+            position: fixed;
+            left: calc(50% - 250px);
+            top: 560px;
+            user-select: none;
+        }
+
+        #b_score_result_message{
+            font-size: 50px;
+            color: #f4f9f4;
+            transform: translate(-50%, -50%);
+            position: fixed;
+            left: calc(50% + 250px);
+            top: 450px;
+            user-select: none;
+        }
+
+        #b_score_result{
+            font-size: 40px;
+            color: #f4f9f4;
+            transform: translate(-50%, -50%);
+            position: fixed;
+            left: calc(50% + 250px);
+            top: 520px;
+            user-select: none;
+        }
+
+        #b_cards_result{
+            font-size: 20px;
+            color: #f4f9f4;
+            transform: translate(-50%, -50%);
+            position: fixed;
+            left: calc(50% + 250px);
+            top: 560px;
+            user-select: none;
+        }
+
+        #text1{
+            font-family: cardfontkr;
+            font-size: 20px;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: calc(35% + 390px);
+            color:  #5c8d89;
+            text-align: center;
+            user-select: none;
+        }
+
+
+
+    </style>
+</head>
+<body>
+        <div id="result_screen">
+            <div id="message">샌즈!</div>
+
+            <div id="a_score_result_message">점수</div>
+            <div id="a_score_result">8</div>
+
+            <div id="b_score_result_message">상대 점수</div>
+            <div id="b_score_result">7</div>
+
+            <div id="a_cards_result">s, a, n, s</div>
+
+            <div id="b_cards_result">p, a, p, y, r, u, s, 2, 5, 7, 2, 6, a ,f ,g</div>
+        </div>
+
+        <div id="text1">카드를 한장씩 내 값이 더 크면 승리<br>아직 모바일 비율 안맞음</div>
+
+        <div id="b_history">card history</div>
+
+        <div id="b_score">1</div>
+
+        <div id="cardname">1 2 3 4 5 6 7 8 9 A D J K M Q</div>
+        <div id="line"></div>
+
+        <div id="a_score">2</div>
+
+        <div id="a_history">card history</div>
+
+        <div id="explain_box">문자테스트 샌즈 언더테일 아아아 줄내림 줄내림 줄내림 줄내림 샌즈</div>
+
+        <!-- <div id="b_maincard"></div> -->
+
+        <!-- <div id="card1" class="card">1</div>
+        <div id="card2" class="card">2</div>
+        <div id="card3" class="card">3</div>
+        <div id="card4" class="card">4</div>
+        <div id="card5" class="card">5</div>
+        <div id="card6" class="card">6</div>
+        <div id="card7" class="card">7</div>
+        <div id="card8" class="card">8</div>
+        <div id="card9" class="card">9</div>
+        <div id="card10" class="card">a</div>
+        <div id="card11" class="card">D</div>
+        <div id="card12" class="card">J</div>
+        <div id="card13" class="card">K</div>
+        <div id="card14" class="card">M</div>
+        <div id="card15" class="card">Q</div> -->
+
+
+
+    <script>
+
+        var a=0;
+        var b=0;
+
+        var scores_a=0;
+        var scores_b=0;
+
+        var round=0;
+
+        var history_a=[];
+        var history_b=[];
+
+        var card=['1','2','3','4','5','6','7','8','9','a','D','J','K','M','Q'];
+        var card_c=['1','2','3','4','5','6','7','8','9','a','D','J','K','M','Q'];
+
+        var explain=['','','','','','','','','',
+        '상대가 숫자를 내면 승리하고, 문자면 패배합니다.',
+        '각각 1을 제외한 낮은 순으로 카드를 2장씩 파괴하고 패배합니다',
+        '상대가 7, 8, 9, a, D를 내면 승리하고, 아니면 패배합니다',
+        '상대가 Q를 내면 패배하고, 상대가 1을 내면 게임에서 패배합니다. 상대가 나머지를 낼 경우 승리합니다',
+        '상대가 이전에 낸 카드를 복사합니다. 이전에 낸 카드가 없을경우 무승부 처리됩니다.',
+        '상대가 숫자를 내면 패배하고, 문자를 내면 상대 능력을 무시하고 승리합니다.'];
+
+        // 카드를 사용하면 다음 라운드에선 숫자밖에 사용할 수 없습니다
+
+        var cards_a=['1','2','3','4','5','6','7','8','9','a','D','J','K','M','Q'];
+        var cards_b=['1','2','3','4','5','6','7','8','9','a','D','J','K','M','Q'];
+
+        var cardnum_a=0;
+        var cardnum_b=0;
+
+        document.getElementById('a_score').innerHTML=scores_a;
+        document.getElementById('b_score').innerHTML=scores_b;
+
+
+        var flip=new Audio();
+        flip.src='flip.wav'
+
+        var close=new Audio();
+        close.src='close.wav'
+
+        // setInterval(function(){
+            
+        // })
+
+        //1 -> a 이김, 2 -> b 이김, 3-> 비김
+        var score_calculration=0;
+
+        function card_manufacture(){
+            for(var i=1; i<=15; i++){
+                var card=document.createElement('div');
+                card.className='acard';
+                card.id='a_card'+i
+                card.style.left='calc(50% + '+(-200+i*25)+'px)';
+                document.body.appendChild(card);
+            }
+            for(var i=1; i<=15; i++){
+                var card=document.createElement('div');
+                card.className='bcard';
+                card.id='b_card'+i
+                card.style.left='calc(50% + '+(-200+i*25)+'px)';
+                document.body.appendChild(card);
+            }
+        }
+
+        card_manufacture();
+
+        function maincard_manufacture(){
+            for(var i=1; i<=15; i++){
+                var maincard=document.createElement('div');
+                maincard.className='card';
+                maincard.id='card'+i
+                maincard.onmouseup=function(e)
+                {
+                    if(cards_a.includes(e.target.innerText)){
+                        cardnum_a=card.indexOf(e.target.innerText);
+                        start();
+                    }
+                };
+                maincard.onmouseover=function(e){
+                    document.getElementById('explain_box').innerText=explain[card.indexOf(e.target.innerText)];
+                }
+                maincard.innerText=card[i-1];
+                maincard.style.left='calc(50% + '+(-640+i*80)+'px)';
+                document.body.appendChild(maincard);
+            }
+        }
+
+        maincard_manufacture();
+
+        function section(){
+
+            // var al=card.filter(x=>cards_b.includes(x));
+            // var n=al[Math.floor(Math.random()*al.length)];
+            // cardnum_b=card.splice(card.indexOf(n),1)[0];
+            // card=card_c.slice();
+
+            // var al=card.filter(x=>cards_b.includes(x));
+            // var n=al[Math.floor(Math.random()*al.length)];
+            // card.splice(cardnum_b=card.indexOf(n),1);
+            // card=card_c.slice();
+
+            // var 샌즈=Math.random()*cards_b['LENGTH'.toLowerCase()]|0;
+            // cardnum_b=card.indexOf(cards_b[Math.sign(샌즈*-1)],0,cards_b.splice(cards_b.indexOf(cards_b[Math.sign(샌즈*-1)]),1));
+
+            var index=Math.floor(Math.random()*cards_b.length);
+            cardnum_b=card.indexOf(cards_b[index]);
+
+            a=card[cardnum_a];
+            b=card[cardnum_b];
+            
+            round++;
+
+            cards_a.splice(cards_a.indexOf(a),1);
+            cards_b.splice(cards_b.indexOf(b),1);
+
+            history_a.push(a);
+            history_b.push(b);
+
+            console.log('cardnum_a = '+cardnum_a);
+            console.log('cardnum_b = '+cardnum_b);
+            console.log('a = '+a);
+            console.log('b = '+b);
+            console.log('history_a = '+history_a);
+            console.log('history_b = '+history_b);
+            console.log('cards_a = '+cards_a);
+            console.log('cards_b = '+cards_b);
+
+        }
+
+        function compare(){
+
+            /*
+            Q: 숫자 만나면 라운드 패, 문자 만나면 상대 능력 없에고 라운드 승
+            J: 7,8,9,a,D 만나면 라운드 승, 아니면 라운드 패
+            K: Q 만나면 라운드 패, 1 만나면 게임 패
+            D: 각자 남은 카드 낮은거부터 2장 파괴 (1 제외), 그리고 라운드 패(먼저)
+            M: 상대가 이전에 낸 카드 사용 (첫 턴에 내면 무승부)
+            a: 숫자 만나면 라운드 승, 문자 만나면 라운드 패 (다음 라운드 둘다 숫자만 내기, 숫자 없으면 문자)
+            
+            숫자 3개 (a, a+1, a+2) 연달아 내면 +1점
+
+            D + a -> 무승부
+
+            */
+
+            a=card[cardnum_a];
+            b=card[cardnum_b];
+
+            //M있으면 복사 먼저
+            if(isNaN(a)==true||isNaN(b)==true){
+                
+                // if(a!=b){
+
+                    if(a=='M'){
+                        if(b!='Q'){
+                            if(round==1){
+                                console.log('비김');
+                                score_calculration=3;
+                            }
+                            if(round>=2){
+                                a=history_b[round-2];
+                                console.log('a가 1차복사');
+                                console.log('a = '+a);
+                                if(a=='M'){
+                                    if(round-1==1){
+                                        console.log('비김');
+                                        score_calculration=3;
+                                    }
+                                    if(round-1>=2){
+                                        a=history_b[round-3];
+                                        console.log('a가 2차복사');
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                    if(b=='M'){
+                        if(a!='Q'){
+                            if(round==1){
+                                console.log('비김');
+                                score_calculration=3;
+                            }
+                            if(round>=2){
+                                b=history_a[round-2];
+                                console.log('b가 1차복사');
+                                console.log('b = '+b);
+                                if(b=='M'){
+                                    if(round-1==1){
+                                        console.log('비김');
+                                        score_calculration=3;
+                                    }
+                                    if(round-1>=2){
+                                        b=history_a[round-3];
+                                        console.log('b가 2차복사');
+                                    }
+                                }
+                            }
+
+                        }
+                        
+                    }
+                //}
+            }
+
+            //숫자 vs 숫자
+            if(isNaN(a)==false&&isNaN(b)==false){
+                if(a>b){
+                    console.log('a가 이김');
+                    score_calculration=1;
+                }
+                if(a<b){
+                    console.log('b가 이김');
+                    score_calculration=2;
+                }
+                if(a==b){
+                    console.log('비김');
+                    score_calculration=3;
+                }
+            }
+
+            //문자 vs 숫자
+            if(isNaN(a)==true&&isNaN(b)==false){
+                if(a=='Q'){
+                    console.log('b가 이김');
+                    score_calculration=2;
+                }
+
+                if(a=='J'){
+                    if(b==7||b==8||b==9){
+                        console.log('a가 이김');
+                        score_calculration=1;
+                    }
+                    if(b==1||b==2||b==3||b==4||b==5||b==6){
+                        console.log('b가 이김');
+                        score_calculration=2;
+
+                    }
+                }
+
+                if(a=='K'){
+                    if(b==1){
+                        console.log('b가 완전히 이김');
+                        scores_a=0;
+                        score_calculration=2;
+                        cards_a=[];
+                        cards_b=[];
+
+                    }
+                    if(b!=1){
+                        console.log('a가 이김');
+                        score_calculration=1;
+                    }
+                }
+
+                if(a=='D'){
+                    console.log('카드 파괴 쿠콰카ㅘ카아러ㅣㅏㅁ얼 그리고 b 이김');
+                    if(cards_a.length>2){
+                        if(cards_b.indexOf('1')==-1){
+                            cards_b.splice(0,2);
+                        }
+                        if(cards_b.indexOf('1')>=0){
+                            cards_b.splice(1,2);
+                        }
+                        if(cards_a.indexOf('1')==-1){
+                            cards_a.splice(0,2);
+                        }
+                        if(cards_a.indexOf('1')>=0){
+                            cards_a.splice(1,2);
+                        }
+                    }
+                    if(cards_a.length<=2){
+                        cards_a.splice(0,2);
+                        cards_b.splice(0,2);
+                    }
+                    score_calculration=2;
+                }
+
+                // if(a=='M'){
+                //     console.log('이전에 낸거 복사함 뾰로롱');
+                // }
+
+                if(a=='a'){
+                    console.log('a가 이김')
+                    score_calculration=1;
+                }
+
+            }
+
+            //숫자 vs 문자
+            if(isNaN(a)==false&&isNaN(b)==true){
+                if(b=='Q'){
+                    console.log('a가 이김');
+                    score_calculration=1;
+                }
+
+                if(b=='J'){
+                    if(a==7||a==8||a==9){
+                        console.log('b가 이김');
+                        score_calculration=2;
+                    }
+                    if(a==1||a==2||a==3||a==4||a==5||a==6){
+                        console.log('a가 이김');
+                        score_calculration=1;
+                    }
+                }
+
+                if(b=='K'){
+                    if(a==1){
+                        console.log('a가 완전히 이김');
+                        scores_b=0;
+                        score_calculration=1;
+                        cards_a=[];
+                        cards_b=[];
+                    }
+                    if(a!=1){
+                        console.log('b가 이김');
+                        score_calculration=2;
+                    }
+                }
+
+                if(b=='D'){
+                    console.log('카드 파괴 쿠콰카ㅘ카아러ㅣㅏㅁ얼 그리고 a 이김');
+                    if(cards_a.length>2){
+                        if(cards_b.indexOf('1')==-1){
+                            cards_b.splice(0,2);
+                        }
+                        if(cards_b.indexOf('1')>=0){
+                            cards_b.splice(1,2);
+                        }
+                        if(cards_a.indexOf('1')==-1){
+                            cards_a.splice(0,2);
+                        }
+                        if(cards_a.indexOf('1')>=0){
+                            cards_a.splice(1,2);
+                        }
+                    }
+                    if(cards_a.length<=2){
+                        cards_a.splice(0,2);
+                        cards_b.splice(0,2);
+                    }
+                    score_calculration=1;
+                }
+
+                // if(b=='M'){
+                //     console.log('이전에 낸거 복사함 뾰로롱');
+                // }
+
+                if(b=='a'){
+                    console.log('b가 이김');
+                    score_calculration=2;
+                }
+
+            }
+
+            //문자 vs 문자
+            if(isNaN(a)==true&&isNaN(b)==true){
+                if(a==b){
+                    if(a!='M'&&b!='M'){
+                        console.log('비김');
+                        score_calculration=3;
+                    }
+                }
+
+
+                if(a!=b){
+
+                    
+                    // if(a=='M'){
+                    //     if(b!='Q'){
+                    //         console.log('a가 b 카드 복사');
+                    //     }
+                    // }
+
+                    // if(b=='M'){
+                    //     if(a!='Q'){
+                    //         console.log('b가 a 카드 복사');
+                    //     }
+                    // }
+
+
+
+
+                    if(a=='Q'){
+                        if(b!='a'){
+                            console.log('a가 이김');
+                            score_calculration=1;
+                        }
+                    }
+                    
+                    if(b=='Q'){
+                        if(a!='a'){
+                            console.log('b가 이김');
+                            score_calculration=2;
+                        }
+                    }
+
+
+                    if(a=='J'){
+                        if(b=='D'||b=='a'){
+                            console.log('a가 이김');
+                            score_calculration=1;
+                        }
+                        if(b!='D'&&b!='a'){
+                            console.log('b가 이김');
+                            score_calculration=2;
+                        }
+                    }
+
+                    if(b=='J'){
+                        if(a=='D'||a=='a'){
+                            console.log('b가 이김');
+                            score_calculration=2;
+                        }
+                        if(a!='D'&&a!='a'){
+                            console.log('a가 이김');
+                            score_calculration=1;
+                        }
+                    }
+
+
+                    if(a=='K'){
+                        if(b=='Q'){
+                            console.log('b가 이김');
+                            score_calculration=2;
+                        }
+                        if(b!='Q'){
+                            console.log('a가 이김');
+                            score_calculration=1;
+                        }
+                    }
+
+                    if(b=='K'){
+                        if(a=='Q'){
+                            console.log('a가 이김');
+                            score_calculration=1;
+                        }
+                        if(a!='Q'){
+                            console.log('b가 이김');
+                            score_calculration1=2;
+                        }
+                    }
+
+
+                    if(a=='D'){
+                        if(b=='Q'){
+                            console.log('a 작동 안되고 b 이김');
+                            score_calculration=2;
+                        }
+                        if(b=='a'){
+                            console.log('비김');
+                            score_calculration=3;
+                        }
+                        if(b=='J'){
+                            console.log('b가 이김')
+                            score_calculration=2;
+                        }
+                        if(b=='K'){
+                            console.log('카드 파괴 쿠콰카ㅘ카아러ㅣㅏㅁ얼 그리고 b 이김');
+                            if(cards_a.length>2){
+                                if(cards_b.indexOf('1')==-1){
+                                    cards_b.splice(0,2);
+                                }
+                                if(cards_b.indexOf('1')>=0){
+                                    cards_b.splice(1,2);
+                                }
+                                if(cards_a.indexOf('1')==-1){
+                                    cards_a.splice(0,2);
+                                }
+                                if(cards_a.indexOf('1')>=0){
+                                    cards_a.splice(1,2);
+                                }
+                            }
+                            if(cards_a.length<=2){
+                                cards_a.splice(0,2);
+                                cards_b.splice(0,2);
+                            }
+                            score_calculration=2;
+                        }
+                    }
+
+                    if(b=='D'){
+                        if(a=='Q'){
+                            console.log('b 작동 안되고 a 이김');
+                        }
+                        if(a=='a'){
+                            console.log('비김');
+                        }
+                        if(a=='J'){
+                            console.log('a가 이김')
+                        }
+                        if(a=='K'){
+                            console.log('카드 파괴 쿠콰카ㅘ카아러ㅣㅏㅁ얼 그리고 a 이김');
+                            if(cards_a.length>2){
+                                if(cards_b.indexOf('1')==-1){
+                                    cards_b.splice(0,2);
+                                }
+                                if(cards_b.indexOf('1')>=0){
+                                    cards_b.splice(1,2);
+                                }
+                                if(cards_a.indexOf('1')==-1){
+                                    cards_a.splice(0,2);
+                                }
+                                if(cards_a.indexOf('1')>=0){
+                                    cards_a.splice(1,2);
+                                }
+                            }
+                            if(cards_a.length<=2){
+                                cards_a.splice(0,2);
+                                cards_b.splice(0,2);
+                            }
+                            score_calculration=1;
+                        }
+                    }
+
+                    if(a=='a'){
+                        if(b!='D'){
+                            console.log('b가 이김');
+                            score_calculration=2;
+                        }
+                    }
+
+                    if(b=='a'){
+                        if(a!='D'){
+                            console.log('a가 이김');
+                            score_calculration=1;
+                        }
+                    }
+                }
+            }
+            
+            if(document.getElementById('b_maincard')!==null)
+                document.getElementById('b_maincard').remove()
+
+            var bmaincard=document.createElement('div');
+            bmaincard.id='b_maincard';
+            bmaincard.innerText=b;
+            document.body.appendChild(bmaincard);
+
+            console.log('cardnum_a = '+cardnum_a);
+            console.log('cardnum_b = '+cardnum_b);
+            console.log('a = '+a);
+            console.log('b = '+b);
+            console.log('history_a = '+history_a);
+            console.log('history_b = '+history_b);
+            console.log('cards_a = '+cards_a);
+            console.log('cards_b = '+cards_b);
+
+            if(score_calculration==1){
+                scores_a++;
+                console.log('결과 : a 이김');
+            }
+            if(score_calculration==2){
+                scores_b++;
+                console.log('결과 : b 이김');
+            }
+            if(score_calculration==3){
+                console.log('결과 : 비김');
+            }
+
+            document.getElementById('a_score').innerText=scores_a;
+            document.getElementById('b_score').innerText=scores_b;
+
+            document.getElementById('a_history').innerText=history_a;
+            document.getElementById('b_history').innerText=history_b;
+
+            document.getElementById('card'+(cardnum_a+1)).style.backgroundColor='#7a7a7a'
+            document.getElementById('a_card'+(cardnum_a+1)).style.backgroundColor='#7a7a7a'
+            document.getElementById('b_card'+(cardnum_b+1)).style.backgroundColor='#7a7a7a'
+
+            card.filter(x=>!cards_a.includes(x)).forEach(x=>document.getElementById('a_card'+(card.indexOf(x)+1)).style.backgroundColor='#7a7a7a');
+            card.filter(x=>!cards_b.includes(x)).forEach(x=>document.getElementById('b_card'+(card.indexOf(x)+1)).style.backgroundColor='#7a7a7a');
+
+            card.filter(x=>!cards_a.includes(x)).forEach(x=>document.getElementById('card'+(card.indexOf(x)+1)).style.backgroundColor='#7a7a7a');
+
+            flip.play();
+
+        }
+
+        function result(){
+            if(cards_a.length==0&&cards_b.length==0){
+                if(scores_a>scores_b){
+                    document.getElementById('message').innerText='Win!'
+                }
+                if(scores_a<scores_b){
+                    document.getElementById('message').innerText='Lose!'
+                }
+                if(scores_a==scores_b&&scores_a!=0&&scores_b!=0){
+                    document.getElementById('message').innerText='Draw!'
+                }
+                if(scores_a==0&&scores_b==0){
+                    document.getElementById('message').innerText='Sans!'
+                }
+                document.getElementById('a_score_result').innerText=scores_a;
+                document.getElementById('b_score_result').innerText=scores_b;
+                document.getElementById('a_cards_result').innerText=history_a;
+                document.getElementById('b_cards_result').innerText=history_b;
+                document.getElementById('result_screen').style.display='inline-block';
+
+                close.play();
+            }
+        }
+
+        function start(){
+            section();
+            compare();
+            result();
+        }
+
+        
+
+    </script>
+    
+</body>
+</html>
